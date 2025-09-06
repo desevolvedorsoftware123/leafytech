@@ -2,7 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCameraPermissions } from 'expo-camera';
 import { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Alert, BackHandler, Button, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from "react-native";
-import WebView from "react-native-webview";
+// 1. IMPORTAÇÃO ATUALIZADA
+import WebView, { WebViewPermissionRequest } from "react-native-webview";
 
 export default function AppScreen() {
   const [ip, setIp] = useState('');
@@ -82,8 +83,14 @@ export default function AppScreen() {
           ref={refAtualWebview}
           style={{ flex: 1 }}
           source={{ uri: url }}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
           mediaPlaybackRequiresUserAction={false}
-          onPermissionRequest={request => { request.grant(request.resources); }}
+          allowsInlineMediaPlayback={true}
+          // 2. TIPO ADICIONADO AQUI
+          onPermissionRequest={(request: WebViewPermissionRequest) => {
+            request.grant(request.resources);
+          }}
         />
       </SafeAreaView>
     );
