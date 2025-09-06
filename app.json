@@ -39,13 +39,15 @@
         }
       ],
       [
-        "expo-build-properties",
-        {
-          "android": {
-            "kotlinVersion": "1.8.0"
-          }
-        }
+  "expo-build-properties",
+  {
+    "android": {
+      "extraMavenRepos": [
+        "https://www.jitpack.io"
       ]
+    }
+  }
+]
     ],
     "experiments": {
       "typedRoutes": true
