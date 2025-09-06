@@ -6,7 +6,7 @@ export default function RootLayout() {
     <SafeAreaView style={{ flex: 1 }}>
       <Stack>
         <Stack.Screen
-          name="index" // Apontando para o seu arquivo app/index.tsx
+          name="index"
           options={{ headerShown: false }}
         />
       </Stack>

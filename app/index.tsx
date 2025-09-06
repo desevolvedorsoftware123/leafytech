@@ -1,9 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useCameraPermissions } from 'expo-camera';
 import { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Alert, BackHandler, Button, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from "react-native";
-// 1. IMPORTAÇÃO ATUALIZADA
-import WebView, { WebViewPermissionRequest } from "react-native-webview";
+import WebView from "react-native-webview";
 
 export default function AppScreen() {
   const [ip, setIp] = useState('');
@@ -14,13 +12,9 @@ export default function AppScreen() {
   const [showWebView, setShowWebView] = useState(false);
   const [isLoading, setIsLoading] = useState(true); 
   const refAtualWebview = useRef<WebView>(null);
-  const [permission, requestPermission] = useCameraPermissions();
 
   useEffect(() => {
-    const handlePermissionsAndCache = async () => {
-      if (permission && !permission.granted && permission.canAskAgain) {
-        await requestPermission();
-      }
+    const initializeApp = async () => {
       try {
         const savedIp = await AsyncStorage.getItem('server_ip');
         const savedPorta = await AsyncStorage.getItem('server_porta');
@@ -28,6 +22,7 @@ export default function AppScreen() {
         const savedfilial = await AsyncStorage.getItem('server_filial');
 
         if (savedIp && savedPorta && savedCnpj && savedfilial ) {
+          // CORREÇÃO: URL padronizada para http://
           const finalUrl = `http://${savedIp}:${savedPorta}/sis${savedfilial}${savedCnpj}/painel/?ambiente=mobile`;
           setUrl(finalUrl);
           setShowWebView(true);
@@ -38,8 +33,9 @@ export default function AppScreen() {
         setIsLoading(false); 
       }
     };
-    handlePermissionsAndCache();
-  }, [permission]);
+    
+    initializeApp();
+  }, []);
 
   useEffect(() => {
     const acaoVoltar = () => {
@@ -63,6 +59,7 @@ export default function AppScreen() {
       await AsyncStorage.setItem('server_porta', porta);
       await AsyncStorage.setItem('server_cnpj', cnpj);
       await AsyncStorage.setItem('server_filial', filial);
+      // CORREÇÃO: URL padronizada para http://
       const finalUrl = `http://${ip}:${porta}/sis${filial}${cnpj}/painel/?ambiente=mobile`;
       setUrl(finalUrl);
       setShowWebView(true);
@@ -83,14 +80,6 @@ export default function AppScreen() {
           ref={refAtualWebview}
           style={{ flex: 1 }}
           source={{ uri: url }}
-          javaScriptEnabled={true}
-          domStorageEnabled={true}
-          mediaPlaybackRequiresUserAction={false}
-          allowsInlineMediaPlayback={true}
-          // 2. TIPO ADICIONADO AQUI
-          onPermissionRequest={(request: WebViewPermissionRequest) => {
-            request.grant(request.resources);
-          }}
         />
       </SafeAreaView>
     );
