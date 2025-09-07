@@ -39,15 +39,16 @@
         }
       ],
       [
-  "expo-build-properties",
-  {
-    "android": {
-      "extraMavenRepos": [
-        "https://www.jitpack.io"
+        "expo-build-properties",
+        {
+          "android": {
+            "extraMavenRepos": [
+              "https://www.jitpack.io"
+            ],
+            "usesCleartextTraffic": true
+          }
+        }
       ]
-    }
-  }
-]
     ],
     "experiments": {
       "typedRoutes": true
