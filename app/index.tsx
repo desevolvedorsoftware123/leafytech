@@ -23,8 +23,9 @@ export default function AppScreen() {
 
         if (savedIp && savedPorta && savedCnpj && savedfilial ) {
           // CORREÇÃO: URL padronizada para http://
-          const finalUrl = `http://${savedIp}:${savedPorta}/sis${savedfilial}${savedCnpj}/painel/?ambiente=mobile`;
+          const finalUrl = `http://${savedIp}${savedPorta}${savedfilial}${savedCnpj}`;
           setUrl(finalUrl);
+          Alert.alert("URL carregada", finalUrl);
           setShowWebView(true);
         }
       } catch (error) {
@@ -60,8 +61,9 @@ export default function AppScreen() {
       await AsyncStorage.setItem('server_cnpj', cnpj);
       await AsyncStorage.setItem('server_filial', filial);
       // CORREÇÃO: URL padronizada para http://
-      const finalUrl = `http://${ip}:${porta}/sis${filial}${cnpj}/painel/?ambiente=mobile`;
+      const finalUrl = `http://${ip}${porta}${filial}${cnpj}`;
       setUrl(finalUrl);
+      Alert.alert("URL carregada", finalUrl);
       setShowWebView(true);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível salvar os dados.");
