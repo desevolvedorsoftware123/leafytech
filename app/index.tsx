@@ -23,7 +23,7 @@ export default function AppScreen() {
 
         if (savedIp && savedPorta && savedCnpj && savedfilial ) {
           // CORREÇÃO: URL padronizada para http://
-          const finalUrl = `http://${savedIp}${savedPorta}${savedfilial}${savedCnpj}`;
+          const finalUrl = `https://${savedIp}${savedPorta}${savedfilial}${savedCnpj}`;
           setUrl(finalUrl);
           Alert.alert("URL carregada", finalUrl);
           setShowWebView(true);
@@ -61,7 +61,7 @@ export default function AppScreen() {
       await AsyncStorage.setItem('server_cnpj', cnpj);
       await AsyncStorage.setItem('server_filial', filial);
       // CORREÇÃO: URL padronizada para http://
-      const finalUrl = `http://${ip}${porta}${filial}${cnpj}`;
+      const finalUrl = `https://${ip}${porta}${filial}${cnpj}`;
       setUrl(finalUrl);
       Alert.alert("URL carregada", finalUrl);
       setShowWebView(true);
