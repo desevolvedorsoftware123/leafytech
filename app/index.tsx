@@ -92,9 +92,9 @@ export default function AppScreen() {
       <StatusBar barStyle="dark-content" />
       <Text style={styles.title}>Configurar Acesso</Text>
       <TextInput style={styles.input} placeholder="IP do Servidor" value={ip} onChangeText={setIp} autoCapitalize="none" />
-      <TextInput style={styles.input} placeholder="Porta" value={porta} onChangeText={setPorta} keyboardType="numeric" />
-      <TextInput style={styles.input} placeholder="CNPJ da Empresa" value={cnpj} onChangeText={setCnpj} keyboardType="numeric" />
-      <TextInput style={styles.input} placeholder="Filial" value={filial} onChangeText={setFilial} keyboardType="numeric" />
+      <TextInput style={styles.input} placeholder="Porta" value={porta} onChangeText={setPorta}  />
+      <TextInput style={styles.input} placeholder="CNPJ da Empresa" value={cnpj} onChangeText={setCnpj}  />
+      <TextInput style={styles.input} placeholder="Filial" value={filial} onChangeText={setFilial}  />
       <Button title="Acessar" onPress={handleAcessar} />
     </SafeAreaView>
   );
