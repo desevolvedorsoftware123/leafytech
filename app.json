@@ -44,7 +44,8 @@
           "android": {
             "extraMavenRepos": [
               "https://www.jitpack.io"
-            ]
+            ],
+            "usesCleartextTraffic": true
           }
         }
       ]
@@ -57,7 +58,6 @@
       "eas": {
         "projectId": "03365e9d-86db-4d85-84e1-98af096d701d"
       }
-    },
-    "owner": "weliton123"
+    }
   }
 }
