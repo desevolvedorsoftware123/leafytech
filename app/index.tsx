@@ -25,7 +25,6 @@ export default function AppScreen() {
           // CORREÇÃO: URL padronizada para http://
           const finalUrl = `http://${ip}:${porta}/sis${filial}${cnpj}/painel/?ambiente=mobile`;
           setUrl(finalUrl);
-          Alert.alert("URL carregada", finalUrl);
           setShowWebView(true);
         }
       } catch (error) {
@@ -63,7 +62,6 @@ export default function AppScreen() {
       // CORREÇÃO: URL padronizada para http://
       const finalUrl = `http://${ip}:${porta}/sis${filial}${cnpj}/painel/?ambiente=mobile`;
       setUrl(finalUrl);
-      Alert.alert("URL carregada", finalUrl);
       setShowWebView(true);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível salvar os dados.");
