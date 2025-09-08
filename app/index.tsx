@@ -16,12 +16,12 @@ export default function AppScreen() {
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        const savedIp = await AsyncStorage.getItem('server_ip');
-        const savedPorta = await AsyncStorage.getItem('server_porta');
-        const savedCnpj = await AsyncStorage.getItem('server_cnpj');
-        const savedfilial = await AsyncStorage.getItem('server_filial');
+        const ip = await AsyncStorage.getItem('server_ip');
+        const porta = await AsyncStorage.getItem('server_porta');
+        const cnpj = await AsyncStorage.getItem('server_cnpj');
+        const filial = await AsyncStorage.getItem('server_filial');
 
-        if (savedIp && savedPorta && savedCnpj && savedfilial ) {
+        if (ip && porta && cnpj && filial ) {
           // CORREÇÃO: URL padronizada para http://
           const finalUrl = `http://${ip}:${porta}/sis${filial}${cnpj}/painel/?ambiente=mobile`;
           setUrl(finalUrl);
