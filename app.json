@@ -7,7 +7,7 @@
     "icon": "./assets/icons/icon.png",
     "scheme": "brookpdv",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "owner": "weliton123",
     "ios": {
       "supportsTablet": true
     },
@@ -16,7 +16,6 @@
         "foregroundImage": "./assets/icons/adaptive-icon.png",
         "backgroundColor": "#045165"
       },
-      "edgeToEdgeEnabled": false,
       "package": "com.brookpdvleafytech",
       "permissions": [
         "CAMERA"
@@ -42,17 +41,11 @@
         "expo-build-properties",
         {
           "android": {
-            "extraMavenRepos": [
-              "https://www.jitpack.io"
-            ],
             "usesCleartextTraffic": true
           }
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true
-    },
     "extra": {
       "router": {
         "origin": false
@@ -60,7 +53,6 @@
       "eas": {
         "projectId": "bb5caf2d-169c-4a11-82bb-f2b831c73a5a"
       }
-    },
-    "owner": "weliton123"
+    }
   }
 }
