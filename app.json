@@ -54,10 +54,13 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {},
+      "router": {
+        "origin": false
+      },
       "eas": {
-        "projectId": "03365e9d-86db-4d85-84e1-98af096d701d"
+        "projectId": "bb5caf2d-169c-4a11-82bb-f2b831c73a5a"
       }
-    }
+    },
+    "owner": "weliton123"
   }
 }
