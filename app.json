@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "LeafyApp",
-    "slug": "LeafyApp",
+    "name": "Brook PDV",
+    "slug": "Brook PDV",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icons/icon.png",
@@ -17,7 +17,7 @@
         "backgroundColor": "#045165"
       },
       "edgeToEdgeEnabled": false,
-      "package": "com.jardesonsarkis.LeafyAppapp",
+      "package": "com.brookpdvleafytech",
       "permissions": [
         "CAMERA"
       ]
